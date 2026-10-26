@@ -1,15 +1,14 @@
 {
-  "name": "karwa-chauth-server",
+  "name": "karwa-chauth-surprise",
   "version": "1.0.0",
   "private": true,
-  "main": "server.js",
+  "workspaces": ["client", "server"],
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js"
+    "dev": "concurrently -k -n API,WEB -c magenta,cyan \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server"
   },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^18.0.9",
-    "express": "^4.21.2"
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
