@@ -1,8 +1,12 @@
+
 {
   "name": "karwa-chauth-surprise",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["client", "server"],
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "dev": "concurrently -k -n API,WEB -c magenta,cyan \"npm run dev --workspace server\" \"npm run dev --workspace client\"",
     "build": "npm run build --workspace client",
